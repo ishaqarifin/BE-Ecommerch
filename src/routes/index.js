@@ -21,9 +21,9 @@ router.delete('/deleteUser/:id', deleteUser)
 router.get('/userproducts', getUserProducts)
 
 router.post('/addproduct', auth, uploadFile('image'), addProduct)
-router.get('/products', getProducts)
-router.patch("/updateproducts/:id", uploadFile("image"), updateProduct);
-router.get("/product/:id", getProduct);
+router.get('/products', auth, getProducts)
+router.patch("/updateproducts/:id", auth, uploadFile("image"), updateProduct);
+router.get("/product/:id", auth, getProduct);
 router.delete("/deleteproduct/:id", auth, deleteProduct);
 
 router.get('/categories', getCategories)
